@@ -5,7 +5,7 @@ RUN mkdir /opt/html
 WORKDIR /opt/html
 
 ### Alias setting
-RUN echo -e "alias ll='ls -al'\nalias php='php8'\nalias composer='php8 /usr/bin/composer'"> ~/.bashrc
+RUN echo -e "alias ll='ls -aFl'\nalias php='php8'\nalias composer='php8 /usr/bin/composer'"> ~/.bashrc
 
 ### Environment
 ENV TZ=Japan
@@ -13,6 +13,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ### Install basic middleware
 RUN apk add bash make gcc g++ curl zip git openssl tzdata libc6-compat
+RUN apk add --no-cache libc6-compat && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 
 ### Install openrc
 RUN apk add openrc
@@ -40,8 +41,6 @@ RUN mv composer.phar /usr/bin/composer
 
 ### Install node.js middleware
 RUN apk add npm
-RUN npm install -g n
-RUN n latest
 
 ### Install Nginx
 RUN apk add nginx
