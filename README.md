@@ -21,3 +21,6 @@ If /opt/html is empty then create Laravel project in /opt/html
 See docker-entrypoint.sh for details  
 
     docker run -it --name alpine-laravel9 -p 8080:80 alpine-laravel9:init  
+
+# Access Laravel welcome page
+http://localhost:8080/
