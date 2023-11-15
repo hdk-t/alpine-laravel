@@ -2,7 +2,7 @@
 Laravel on Alpine Docker Container !!  
 
 DockerHub  
-https://hub.docker.com/r/thideki/alpine-laravel9
+https://hub.docker.com/r/thideki/alpine-laravel
 
 # Environment  
 Alpine: latest  
